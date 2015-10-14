@@ -100,7 +100,6 @@ task domaGen << {
     def dbUrl            = 'jdbc:postgresql://localhost/ksbylending'
     def dbUser           = 'ksbylending_user'
     def dbPassword       = 'xxxxxxxx'
-    def dialectName      = 'postgresql'
     def tableNamePattern = '.*'
     // おそらく変更不要なもの
     def importOfComponentAndAutowiredDomaConfig = "${rootPackageName}.util.doma.ComponentAndAutowiredDomaConfig"
@@ -119,9 +118,7 @@ task domaGen << {
     // Dao インターフェース、Entity クラスを生成する
     ant.taskdef(resource: 'domagentask.properties',
             classpath: configurations.domaGenRuntime.asPath)
-    ant.gen(url: "${dbUrl}", user: "${dbUser}", password: "${dbPassword}"
-            , dialectName: "${dialectName}"
-            , tableNamePattern: "${tableNamePattern}") {
+    ant.gen(url: "${dbUrl}", user: "${dbUser}", password: "${dbPassword}", tableNamePattern: "${tableNamePattern}") {
         entityConfig(packageName: "${rootPackageName}.entity", useListener: false)
         daoConfig(packageName: "${rootPackageName}.dao")
         sqlConfig()
