@@ -33,7 +33,7 @@ compileJava.dependsOn processResources
 
 jar {
     baseName = 'springboot-doma2-template'
-    version = '1.0.0-RELEASE'
+    version = '0.0.1-SNAPSHOT'
 }
 
 eclipse {
