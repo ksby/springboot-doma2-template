@@ -60,6 +60,7 @@ repositories {
 
 dependencies {
     def jdbcDriver = "org.postgresql:postgresql:9.4-1204-jdbc41"
+    def domaVersion = "2.5.1"
 
     // spring-boot-gradle-plugin によりバージョン番号が自動で設定されるもの
     // Appendix E. Dependency versions ( http://docs.spring.io/spring-boot/docs/current/reference/html/appendix-dependency-versions.html ) 参照
@@ -71,7 +72,7 @@ dependencies {
 
     // spring-boot-gradle-plugin によりバージョン番号が自動で設定されないもの
     compile("${jdbcDriver}")
-    compile("org.seasar.doma:doma:2.5.0")
+    compile("org.seasar.doma:doma:${domaVersion}")
     compile("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16")
     compile("org.apache.commons:commons-lang3:3.4")
     compile("org.projectlombok:lombok:1.16.6")
@@ -80,7 +81,7 @@ dependencies {
     testCompile("org.jmockit:jmockit:1.19")
 
     // for Doma-Gen
-    domaGenRuntime("org.seasar.doma:doma-gen:2.5.0")
+    domaGenRuntime("org.seasar.doma:doma-gen:${domaVersion}")
     domaGenRuntime("${jdbcDriver}")
 }
 
